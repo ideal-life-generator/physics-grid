@@ -1,0 +1,26 @@
+{
+  "name": "physics-grid",
+  "version": "1.0.0",
+  "description": "Physics grid for react templates",
+  "main": "lib/index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ideal-life/physics-grid.git"
+  },
+  "keywords": [
+    "physics",
+    "physics grid"
+  ],
+  "author": "ideal.life",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ideal-life/physics-grid/issues"
+  },
+  "homepage": "https://github.com/ideal-life/physics-grid#readme"
+}
