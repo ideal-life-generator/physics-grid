@@ -55,9 +55,6 @@ export function computeItemY(n) {
   return 15 + n * 50 + n * 10
 }
 
-export function computeFooterY(listHeight) {
-}
-
 export function navResolution() {
   const { matches: heightOver300Px } = matchMedia('(min-height: 300px)')
 

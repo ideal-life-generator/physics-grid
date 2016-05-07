@@ -1,46 +1,34 @@
 import { createClass, PropTypes, createElement, Children, cloneElement } from 'react'
 
 export default createClass({
-  childContextTypes: {
-    screenWidth: PropTypes.number,
-    screenHeight: PropTypes.number
-  },
-
   getInitialState() {
-    const { body: { clientWidth, clientHeight } } = document
-    
-    return {
-      screenWidth: clientWidth,
-      screenHeight: clientHeight
-    }
-  },
-
-  getChildContext: function() {
     const {
-      state: { screenWidth, screenHeight }
-    } = this
-
+      innerWidth: screenWidth,
+      innerHeight: screenHeight
+    } = window
+    
     return {
       screenWidth,
       screenHeight
     }
   },
 
-  checkScreenSize() {
-    const { body: { clientWidth, clientHeight } } = document
-
-    this.setState({
-      screenWidth: clientWidth,
-      screenHeight: clientHeight
-    })
-  },
-
   componentDidMount() {
     const { checkScreenSize } = this
 
     window.addEventListener('resize', checkScreenSize)
+  },
 
-    checkScreenSize()
+  checkScreenSize() {
+    const {
+      innerWidth: screenWidth,
+      innerHeight: screenHeight
+    } = window
+
+    this.setState({
+      screenWidth,
+      screenHeight
+    })
   },
 
   render() {
@@ -61,8 +49,11 @@ export default createClass({
 
     const style = {
       position: 'absolute',
-      width: `${width}px`,
-      height: `${height}px`
+      top: '0px',
+      right: '0px',
+      bottom: '0px',
+      left: '0px',
+      overflow: 'hidden'
     }
 
     const additianalParams = {

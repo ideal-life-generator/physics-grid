@@ -1,6 +1,7 @@
-import { Component, createElement, Children, cloneElement, isValidElement } from "react"
+import { Component, createElement, Children, cloneElement, isValidElement, PropTypes } from "react"
 
 const { map } = Children
+const { number } = PropTypes
 
 export default class Particle extends Component {
   render() {
@@ -134,4 +135,8 @@ export default class Particle extends Component {
       createElement(component, { ...props, style, className: props.className ? `particle ${props.className}`: 'particle' }, childrenWithProps)
     )
   }
+}
+
+Particle.contextTypes = {
+  screenHeight: number
 }
